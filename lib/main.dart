@@ -7,10 +7,11 @@ import 'package:flutter_project1/page_shared_preference.dart';
 import 'package:flutter_project1/routeanmication.dart';
 import 'package:flutter_project1/splash.dart';
 import 'package:flutter_project1/valunotifier.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'about.dart';
 import 'package:flutter_project1/page_shared_preference.dart';
+
+import 'db-hive/functions/dbfunctions.dart';
 
 // void main() => runApp(MyApp());
 
@@ -20,10 +21,7 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Hive.initFlutter();
-  if(!Hive.isAdapterRegistered(studentModelAdapter().typeId)){
-    Hive.registerAdapter(studentModelAdapter());
-  }
+  await initializeSQFliteDatabase();
 
   runApp(MyApp());
 }

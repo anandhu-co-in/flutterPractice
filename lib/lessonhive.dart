@@ -62,9 +62,9 @@ class HivePractive extends StatelessWidget {
                           subtitle: Text(studentsList[index].age),
                           trailing: IconButton(onPressed: (){
                             print('clicked');
-                            print(studentsList[index].key);
-                            if (studentsList[index].key!=null){
-                              deleteStudent(studentsList[index].key!);
+                            print(studentsList[index].id);
+                            if (studentsList[index].id!=null){
+                              deleteStudent(studentsList[index].id!);
                             }
                           }, icon: Icon(Icons.delete)),
 

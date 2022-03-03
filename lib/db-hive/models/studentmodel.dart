@@ -1,26 +1,21 @@
-// class studentModel{
-//   final String name;
-//   final String age;
-//
-//   studentModel({required this.name, required this.age});
-//
-// }
+class studentModel {
 
-import 'package:flutter/material.dart';
-import 'package:hive/hive.dart';
+  final int? id;
 
-part 'studentmodel.g.dart'; //when that generator command is runnnig, as i add this .g.dart filean and saved, the studentmode.g.dart is generated succesfully
-
-@HiveType(typeId: 1)
-class studentModel extends HiveObject{
-
-  @HiveField(0)
   final String name;
 
-  @HiveField(1)
   final String age;
 
-  studentModel({required this.name, required this.age});
+  studentModel({required this.name, required this.age, this.id});
+
+  static studentModel fromMap(Map<String, Object?> map){
+
+    final id =map['id'] as int;
+    final name =map['name'] as String;
+    final age =map['age'] as String;
+
+    return studentModel(id:id, name:name, age:age);
+  }
 
 }
 
